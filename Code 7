@@ -1,0 +1,15 @@
+asset_name = input()
+total_account_balance = float(input())
+entry_price = float(input())
+stop_loss_price = float(input())
+risk_per_share = (entry_price - stop_loss_price)
+max_risk = (total_account_balance * 0.02)
+shares_to_buy = (max_risk / risk_per_share)
+total_trade_cost = (entry_price * shares_to_buy)
+
+if stop_loss_price >= entry_price:
+    print("Warning! Stop loss must below entry!")
+elif total_trade_cost > total_account_balance:
+    print("Insufficent account balance")
+else:
+    print("Total cost: $" + str(total_trade_cost))
